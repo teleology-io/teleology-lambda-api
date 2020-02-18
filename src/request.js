@@ -1,6 +1,6 @@
 import qs from 'querystring';
 
-const extractBody = ({ body = '', isBase64Encoded }) => {
+const extractBody = ({ body, isBase64Encoded }) => {
   let value = body;
   if (isBase64Encoded) {
     try {
@@ -27,10 +27,10 @@ const extractBody = ({ body = '', isBase64Encoded }) => {
 };
 
 export default ({
-  headers,
-  pathParameters,
-  queryStringParameters,
-  body,
+  headers = {},
+  pathParameters = {},
+  queryStringParameters = {},
+  body = '',
   isBase64Encoded,
   ...event
 }) => {

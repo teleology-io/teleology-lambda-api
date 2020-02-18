@@ -9,17 +9,55 @@ const event = {
   },
 };
 
-describe('wrapper', () => {
-  it('basic wrap', async () => {
-    const handler = (event) => {
-      return {
-        foo: 'bar',
-      };
+describe.only('wrapper', () => {
+  it('success defaults', async () => {
+    const handler = () => ({
+      foo: 'bar',
+    });
+
+    const result = await wrapper(handler)(event);
+    expect(result).toEqual({
+      body: '{"foo":"bar"}',
+      headers: {
+        'Access-Control-Allow-Credentials': true,
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/json',
+      },
+      statusCode: '200',
+    });
+  });
+
+  it('error defaults', async () => {
+    const handler = () => {
+      throw new Error('foo');
     };
 
-    const wrapped = wrapper(handler);
+    const result = await wrapper(handler)(event);
+    expect(result).toEqual({
+      body: '{"error":"foo"}',
+      headers: {
+        'Access-Control-Allow-Credentials': true,
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/json',
+      },
+      statusCode: '500',
+    });
+  });
 
-    const result = await wrapped(event);
-    expect(result).toEqual('fo');
+  it('custom error', async () => {
+    const handler = () => {
+      throw new ApiError('Unauthorized', { code: 401, description: 'nope' });
+    };
+
+    const result = await wrapper(handler)(event);
+    expect(result).toEqual({
+      body: '{"error":"Unauthorized"}',
+      headers: {
+        'Access-Control-Allow-Credentials': true,
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/json',
+      },
+      statusCode: '401',
+    });
   });
 });
