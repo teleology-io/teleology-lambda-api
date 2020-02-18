@@ -1,9 +1,17 @@
 import qs from 'querystring';
 
-const extractBody = ({ body, isBase64Encoded }) => {
+const extractBody = ({ body = '', isBase64Encoded }) => {
+  let value = body;
+  if (isBase64Encoded) {
+    try {
+      value = Buffer.from(body, 'base64');
+    } catch (e) {
+      // do nothing
+    }
+  }
+
   try {
-    const debuff = Buffer.from(body, isBase64Encoded ? 'base64' : undefined);
-    const o = JSON.parse(debuff);
+    const o = JSON.parse(value);
     if (o && typeof o === 'object') {
       return o;
     }
@@ -11,13 +19,19 @@ const extractBody = ({ body, isBase64Encoded }) => {
     // do nothing
   }
 
-  return body;
+  try {
+    return { ...qs.parse(value) };
+  } catch (e) {
+    // do nothing
+  }
 };
 
 export default ({
   headers,
   pathParameters,
   queryStringParameters,
+  body,
+  isBase64Encoded,
   ...event
 }) => {
   const h = Object.keys(headers).reduce((a, key) => {
@@ -31,8 +45,7 @@ export default ({
     data: {
       ...pathParameters,
       ...queryStringParameters,
-      ...extractBody(event),
-      ...qs.parse(event.body || ''),
+      ...extractBody({ body, isBase64Encoded }),
     },
   };
 };

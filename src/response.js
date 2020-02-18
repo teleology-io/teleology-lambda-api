@@ -4,7 +4,7 @@ const DEFAULT_HEADERS = {
   'Content-Type': 'application/json',
 };
 
-export default ({ code = 200, body, headers }) => ({
+export default ({ code = 200, body = '', headers }) => ({
   statusCode: `${code}`,
   body: typeof body === 'string' ? body : JSON.stringify(body),
   headers: {

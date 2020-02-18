@@ -9,7 +9,7 @@
   "scripts": {
     "lint": "npx eslint",
     "lint:src": "yarn lint src",
-    "test": "npx jest --config .jest/config.js",
+    "test": "npx jest test/ --config .jestrc.js",
     "prepare": "npx babel src --out-dir lib"
   },
   "repository": {

@@ -18,7 +18,7 @@ TBD
 ## Changelog
 
 **0.0.1**
-- Expose the actionCreator for one-off actions
+- Initial upload
 
 
 [link-download]: https://img.shields.io/npm/dt/@teleology/lambda-api
