@@ -24,6 +24,8 @@ const extractBody = ({ body, isBase64Encoded }) => {
   } catch (e) {
     // do nothing
   }
+
+  return body;
 };
 
 export default ({

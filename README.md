@@ -28,11 +28,6 @@ const handler = async ({ headers, data }) => {
 export default wrapper(handler);
 ```
 
-_* Body data will be parsed in the following order:_
-1. Buffer
-2. JSON.parse
-3. querystring.parse
-
 ## ApiError
 
 ApiError is inherited from the base Error instance, with some extra features. It defaults with an empty message and a 500 code to reflect a respone error. Additional properties can be added to the error upon creation. 
@@ -59,6 +54,12 @@ export default wrapper(handler);
 ## request
 
 Consumes an aws api gateway event, enhancing and parsing inputs.
+
+_* Body data will be parsed in the following order:_
+1. Buffer
+2. JSON.parse
+3. querystring.parse
+
 
 ```javascript
 import { request } from '@teleology/lambda-api';
@@ -121,6 +122,9 @@ Output:
 
 
 # Changelog
+
+**0.1.1**
+- Allow normal body and header response items, but default to entire response being the body
 
 **0.1.0**
 - Fixed body parsing error where strings were being spread operated

@@ -27,6 +27,26 @@ describe.only('wrapper', () => {
     });
   });
 
+  it('success custom headers and body', async () => {
+    const handler = () => ({
+      headers: {
+        'Content-Type': 'text/html',
+      },
+      body: '<h1>hello</h1>',
+    });
+
+    const result = await wrapper(handler)(event);
+    expect(result).toEqual({
+      body: '<h1>hello</h1>',
+      headers: {
+        'Access-Control-Allow-Credentials': true,
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'text/html',
+      },
+      statusCode: '200',
+    });
+  });
+
   it('error defaults', async () => {
     const handler = () => {
       throw new Error('foo');

@@ -3,9 +3,11 @@ import response from './response';
 
 export default (fn) => async (event) => {
   try {
+    const { body, headers = {}, ...rest } = await fn(request(event));
     return response({
       code: 200,
-      body: await fn(request(event)),
+      headers,
+      body: body || rest,
     });
   } catch (e) {
     return response({

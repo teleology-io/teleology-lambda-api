@@ -1,14 +1,14 @@
 {
   "name": "@teleology/lambda-api",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Common utilities for wrapping aws lambda api gateway endpoints",
   "main": "lib/index.js",
   "files": [
     "lib/*"
   ],
   "scripts": {
-    "lint": "npx eslint",
-    "lint:src": "yarn lint src",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "test": "npx jest test/ --config .jestrc.js",
     "prepare": "npx babel src --out-dir lib"
   },
@@ -38,13 +38,14 @@
     "babel-eslint": "^10.0.3",
     "babel-jest": "^24.9.0",
     "babel-loader": "^8.0.6",
-    "eslint": "^6.5.1",
-    "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-config-prettier": "^6.4.0",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-prettier": "^3.1.1",
+    "eslint": "^7.6.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-config-teleology": "1.0.1",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-prettier": "^3.1.4",
     "jest": "^24.9.0",
-    "prettier": "^1.18.2"
+    "prettier": "^2.0.5"
   },
   "dependencies": {
     "querystring": "^0.2.0"
