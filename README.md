@@ -123,6 +123,9 @@ Output:
 
 # Changelog
 
+**0.1.2**
+- Adding error serialization for clearer reading in wrapper
+
 **0.1.1**
 - Allow normal body and header response items, but default to entire response being the body
 

@@ -16,15 +16,7 @@ describe.only('wrapper', () => {
     });
 
     const result = await wrapper(handler)(event);
-    expect(result).toEqual({
-      body: '{"foo":"bar"}',
-      headers: {
-        'Access-Control-Allow-Credentials': true,
-        'Access-Control-Allow-Origin': '*',
-        'Content-Type': 'application/json',
-      },
-      statusCode: '200',
-    });
+    expect(result).toMatchSnapshot();
   });
 
   it('success custom headers and body', async () => {
@@ -36,15 +28,7 @@ describe.only('wrapper', () => {
     });
 
     const result = await wrapper(handler)(event);
-    expect(result).toEqual({
-      body: '<h1>hello</h1>',
-      headers: {
-        'Access-Control-Allow-Credentials': true,
-        'Access-Control-Allow-Origin': '*',
-        'Content-Type': 'text/html',
-      },
-      statusCode: '200',
-    });
+    expect(result).toMatchSnapshot();
   });
 
   it('error defaults', async () => {
@@ -53,15 +37,7 @@ describe.only('wrapper', () => {
     };
 
     const result = await wrapper(handler)(event);
-    expect(result).toEqual({
-      body: '{"error":"foo"}',
-      headers: {
-        'Access-Control-Allow-Credentials': true,
-        'Access-Control-Allow-Origin': '*',
-        'Content-Type': 'application/json',
-      },
-      statusCode: '500',
-    });
+    expect(result).toMatchSnapshot();
   });
 
   it('custom error', async () => {
@@ -70,14 +46,6 @@ describe.only('wrapper', () => {
     };
 
     const result = await wrapper(handler)(event);
-    expect(result).toEqual({
-      body: '{"error":"Unauthorized"}',
-      headers: {
-        'Access-Control-Allow-Credentials': true,
-        'Access-Control-Allow-Origin': '*',
-        'Content-Type': 'application/json',
-      },
-      statusCode: '401',
-    });
+    expect(result).toMatchSnapshot();
   });
 });
