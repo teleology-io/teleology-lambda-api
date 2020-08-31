@@ -1,5 +1,15 @@
+/* eslint-disable no-param-reassign */
 import request from './request';
 import response from './response';
+
+const serializeError = (e) =>
+  Object.getOwnPropertyNames(e).reduce((error, key) => {
+    // Don't include stack in json response
+    if (key === 'stack') return error;
+
+    error[key] = e[key];
+    return error;
+  }, {});
 
 export default (fn) => async (event) => {
   try {
@@ -12,9 +22,7 @@ export default (fn) => async (event) => {
   } catch (e) {
     return response({
       code: e.code || 500,
-      body: {
-        error: e.message,
-      },
+      body: serializeError(e),
     });
   }
 };
