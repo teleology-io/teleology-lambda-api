@@ -1,3 +1,7 @@
+# [2.1.0](https://github.com/icarus-sullivan/teleology-lambda-api/compare/v2.0.0...v2.1.0) (2020-11-03)
+
+
+
 # [2.0.0](https://github.com/icarus-sullivan/teleology-lambda-api/compare/1.0.0...2.0.0) (2020-11-03)
 
 
