@@ -5,11 +5,7 @@ import response from './response';
 export default (fn) => async (event) => {
   try {
     const { body, headers = {}, ...rest } = await fn(request(event));
-    return response({
-      code: 200,
-      headers,
-      body: body || rest,
-    });
+    return body ?? rest;
   } catch (e) {
     // todo: coming soon: a way to configure this that doesn't rely on serverless-offline
     if (process.env.IS_OFFLINE === "true") { /* true if using serverless-offline */

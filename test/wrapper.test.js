@@ -11,24 +11,13 @@ const event = {
 
 describe.only('wrapper', () => {
   it('success defaults', async () => {
-    const handler = () => ({
+    const expectedHandlerReturnValue = {
       foo: 'bar',
-    });
+    };
+    const handler = () => (expectedHandlerReturnValue);
 
     const result = await wrapper(handler)(event);
-    expect(result).toMatchSnapshot();
-  });
-
-  it('success custom headers and body', async () => {
-    const handler = () => ({
-      headers: {
-        'Content-Type': 'text/html',
-      },
-      body: '<h1>hello</h1>',
-    });
-
-    const result = await wrapper(handler)(event);
-    expect(result).toMatchSnapshot();
+    expect(result).toEqual(expectedHandlerReturnValue);
   });
 
   it('error defaults', async () => {
