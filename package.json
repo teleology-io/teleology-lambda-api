@@ -1,6 +1,6 @@
 {
   "name": "@teleology/lambda-api",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Common utilities for wrapping aws lambda api gateway endpoints",
   "main": "lib/index.js",
   "files": [

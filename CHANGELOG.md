@@ -1,3 +1,12 @@
+# [2.0.0](https://github.com/icarus-sullivan/teleology-lambda-api/compare/1.0.0...2.0.0) (2020-11-03)
+
+
+### Bug Fixes
+
+* return unwrapped value from wrapper, rather than object with response code and body, as AWS will wrap in Payload and serialize, which is simpler. ([7aa3fe5](https://github.com/icarus-sullivan/teleology-lambda-api/commit/7aa3fe559646cdce1d100717090deacba3eb9bde))
+
+
+
 # 1.0.0 (2020-11-03)
 
 
