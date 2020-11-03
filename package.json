@@ -10,7 +10,8 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "test": "npx jest test/ --config .jestrc.js",
-    "prepare": "npx babel src --out-dir lib"
+    "prepare": "npx babel src --out-dir lib",
+    "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md"
   },
   "repository": {
     "type": "git",

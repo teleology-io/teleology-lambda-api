@@ -2,15 +2,6 @@
 import request from './request';
 import response from './response';
 
-const serializeError = (e) =>
-  Object.getOwnPropertyNames(e).reduce((error, key) => {
-    // Don't include stack in json response
-    if (key === 'stack') return error;
-
-    error[key] = e[key];
-    return error;
-  }, {});
-
 export default (fn) => async (event) => {
   try {
     const { body, headers = {}, ...rest } = await fn(request(event));
@@ -20,9 +11,12 @@ export default (fn) => async (event) => {
       body: body || rest,
     });
   } catch (e) {
-    return response({
-      code: e.code || 500,
-      body: serializeError(e),
-    });
+    // todo: coming soon: a way to configure this that doesn't rely on serverless-offline
+    if (process.env.IS_OFFLINE === "true") { /* true if using serverless-offline */
+      // AWS framework will handle this
+      throw e;
+    } else {
+      return new Promise((_, reject) => {reject(e.toString())});
+    }
   }
 };
