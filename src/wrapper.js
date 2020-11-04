@@ -1,11 +1,9 @@
 /* eslint-disable no-param-reassign */
 import request from './request';
-import response from './response';
 
 export default (fn) => async (event) => {
   try {
-    const { body, headers = {}, ...rest } = await fn(request(event));
-    return body ?? rest;
+    return await fn(request(event));
   } catch (e) {
     // todo: coming soon: a way to configure this that doesn't rely on serverless-offline
     if (process.env.IS_OFFLINE === "true") { /* true if using serverless-offline */

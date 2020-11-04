@@ -1,4 +1,4 @@
-import { wrapper, ApiError } from '../src';
+import { wrapper } from '../src';
 
 const event = {
   pathParameters: {
@@ -31,7 +31,7 @@ describe.only('wrapper', () => {
   });
 
   it('custom error', async () => {
-    const error = new ApiError('Unauthorized', { code: 401, description: 'nope' });
+    const error = new Error('Unauthorized');
 
     const handler = () => {
       throw error;
@@ -42,7 +42,7 @@ describe.only('wrapper', () => {
 
   it('custom error, when IS_OFFLINE, rethrow', async () => {
     const msg = 'Unauthorized';
-    const error = new ApiError(msg, { code: 401, description: 'nope' });
+    const error = new Error(msg);
     // move to before/after if there are any more tests that require this env variable
     const envBefore = process.env.IS_OFFLINE;
     try {
