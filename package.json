@@ -1,6 +1,6 @@
 {
   "name": "lib-lambda-wrapper",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Common utilities for wrapping aws lambda api gateway endpoints",
   "main": "lib/index.js",
   "files": [

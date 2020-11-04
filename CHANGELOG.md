@@ -1,3 +1,12 @@
+## [2.1.1](https://github.com/icarus-sullivan/teleology-lambda-api/compare/v2.1.0...v2.1.1) (2020-11-04)
+
+
+### Bug Fixes
+
+* fix return from wrapper.  rest param was turning a string response into an array.  also removed extraneous Response and related files ([2d3d7d4](https://github.com/icarus-sullivan/teleology-lambda-api/commit/2d3d7d46082a0a239c3075bfac5b8c6703458b9e))
+
+
+
 # [2.1.0](https://github.com/icarus-sullivan/teleology-lambda-api/compare/v2.0.0...v2.1.0) (2020-11-03)
 
 
