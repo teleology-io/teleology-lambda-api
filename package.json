@@ -1,5 +1,5 @@
 {
-  "name": "lib-lambda-wrapper",
+  "name": "@teleology/lambda-api",
   "version": "2.1.1",
   "description": "Common utilities for wrapping aws lambda api gateway endpoints",
   "main": "lib/index.js",
