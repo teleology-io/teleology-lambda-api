@@ -13,7 +13,7 @@ const serializeError = (e) =>
 
 export default (fn) => async (event) => {
   try {
-    const { body, headers = {}, ...rest } = await fn(request(event));
+    const { body, headers = {}, ...rest } = (await fn(request(event))) || {};
     return response({
       code: 200,
       headers,

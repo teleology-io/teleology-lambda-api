@@ -24,6 +24,18 @@ Object {
 }
 `;
 
+exports[`wrapper normal response if nothing returned 1`] = `
+Object {
+  "body": "{}",
+  "headers": Object {
+    "Access-Control-Allow-Credentials": true,
+    "Access-Control-Allow-Origin": "*",
+    "Content-Type": "application/json",
+  },
+  "statusCode": "200",
+}
+`;
+
 exports[`wrapper success custom headers and body 1`] = `
 Object {
   "body": "<h1>hello</h1>",

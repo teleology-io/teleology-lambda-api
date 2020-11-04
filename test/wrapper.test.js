@@ -19,6 +19,13 @@ describe.only('wrapper', () => {
     expect(result).toMatchSnapshot();
   });
 
+  it('normal response if nothing returned', async () => {
+    const handler = () => undefined;
+
+    const result = await wrapper(handler)(event);
+    expect(result).toMatchSnapshot();
+  });
+
   it('success custom headers and body', async () => {
     const handler = () => ({
       headers: {
