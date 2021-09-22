@@ -123,6 +123,9 @@ Output:
 
 # Changelog
 
+**0.1.5**
+- Exposing elevating auth object to root event
+
 **0.1.2**
 - Adding error serialization for clearer reading in wrapper
 

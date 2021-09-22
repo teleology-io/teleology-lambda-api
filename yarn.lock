@@ -4483,6 +4483,11 @@ supports-color@^7.1.0:
   dependencies:
     has-flag "^4.0.0"
 
+svelte-iconz@^0.0.12:
+  version "0.0.12"
+  resolved "https://registry.yarnpkg.com/svelte-iconz/-/svelte-iconz-0.0.12.tgz#3c44017975b37f3c1aa03011daa418b0938bb718"
+  integrity sha512-/v8NodSTqiKGdfnxfk+n8J2irbxwKiQH6SkJzZXtXlbmusCelI8cab5XyU8MkmS2zHzcxv9xqe8cVZMMsq3T3w==
+
 symbol-tree@^3.2.2:
   version "3.2.4"
   resolved "https://registry.yarnpkg.com/symbol-tree/-/symbol-tree-3.2.4.tgz#430637d248ba77e078883951fb9aa0eed7c63fa2"

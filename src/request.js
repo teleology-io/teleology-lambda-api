@@ -34,6 +34,7 @@ export default ({
   queryStringParameters = {},
   body = '',
   isBase64Encoded,
+  requestContext,
   ...event
 }) => {
   const h = Object.keys(headers).reduce((a, key) => {
@@ -44,6 +45,8 @@ export default ({
   return {
     ...event,
     headers: h,
+    requestContext,
+    auth: requestContext.authorizer,
     data: {
       ...pathParameters,
       ...queryStringParameters,
