@@ -1,6 +1,6 @@
 {
   "name": "@teleology/lambda-api",
-  "version": "0.1.5",
+  "version": "0.1.7",
   "description": "Common utilities for wrapping aws lambda api gateway endpoints",
   "main": "lib/index.js",
   "files": [
@@ -33,7 +33,7 @@
     "@babel/core": "^7.6.2",
     "@babel/plugin-transform-async-to-generator": "^7.8.3",
     "@babel/polyfill": "^7.6.0",
-    "@babel/preset-env": "^7.6.2",
+    "@babel/preset-env": "^7.15.6",
     "@babel/runtime": "^7.8.3",
     "babel-eslint": "^10.0.3",
     "babel-jest": "^24.9.0",
@@ -48,7 +48,6 @@
     "prettier": "^2.0.5"
   },
   "dependencies": {
-    "querystring": "^0.2.0",
-    "svelte-iconz": "^0.0.12"
+    "querystring": "^0.2.0"
   }
 }

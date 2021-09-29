@@ -42,11 +42,13 @@ export default ({
     return a;
   }, {});
 
+  const auth = requestContext?.authorizer?.claims || requestContext.authorizer;
+
   return {
     ...event,
     headers: h,
     requestContext,
-    auth: requestContext.authorizer,
+    auth,
     data: {
       ...pathParameters,
       ...queryStringParameters,
