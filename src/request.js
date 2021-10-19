@@ -42,6 +42,7 @@ export default ({
     return a;
   }, {});
 
+  // Claims portion here is to support serverless-offline  
   const auth = requestContext?.authorizer?.claims || requestContext.authorizer;
 
   return {
