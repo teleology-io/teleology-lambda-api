@@ -1,4 +1,5 @@
 import qs from 'querystring';
+import { clean } from '@teleology/fp';
 
 const extractBody = ({ body, isBase64Encoded }) => {
   let value = body;
@@ -42,18 +43,22 @@ export default ({
     return a;
   }, {});
 
-  // Claims portion here is to support serverless-offline  
-  const auth = requestContext?.authorizer?.claims || requestContext.authorizer;
+  const ctx = {};
 
-  return {
+  if (requestContext) {
+      // Claims portion here is to support serverless-offline  
+      ctx.auth = requestContext?.authorizer?.claims || requestContext.authorizer;
+  }
+
+  return clean({
     ...event,
+    ...ctx,
     headers: h,
     requestContext,
-    auth,
     data: {
       ...pathParameters,
       ...queryStringParameters,
       ...extractBody({ body, isBase64Encoded }),
     },
-  };
+  });
 };

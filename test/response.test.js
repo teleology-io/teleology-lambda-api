@@ -36,4 +36,11 @@ describe('response', () => {
 
     expect(result.statusCode).toEqual('500');
   });
+
+  it('responds with array', () => {
+    const result = response({ code: 200, body: [{ foo: 'bar' }] });
+
+    expect(result.statusCode).toEqual('200');
+    expect(result.body).toMatchSnapshot();
+  });
 });

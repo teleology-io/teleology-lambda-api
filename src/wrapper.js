@@ -13,8 +13,12 @@ const serializeError = (e) =>
 
 export default (fn) => async (event) => {
   try {
-    const { code = 200, body, headers = {}, ...rest } =
-      (await fn(request(event))) || {};
+    const resolved = await fn(request(event));
+    if (Array.isArray(resolved)) {
+      return response({ body: resolved });
+    }
+
+    const { code = 200, body, headers = {}, ...rest } = resolved || {};
     return response({
       code,
       headers,

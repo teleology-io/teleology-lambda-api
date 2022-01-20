@@ -1191,6 +1191,11 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^13.0.0"
 
+"@teleology/fp@^2.0.2":
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/@teleology/fp/-/fp-2.0.2.tgz#f3a603850ac8830e13d536ab8f3e7870f2de193f"
+  integrity sha512-4WQF7l8hgUjNJXRmRoCygjvQ5Nlq12ruerQv+AL6d34nh3NfU28npE7fAhns1BYcX/t9CeqU97uu0o+p2O2iGw==
+
 "@types/babel__core@^7.1.0":
   version "7.1.4"
   resolved "https://registry.yarnpkg.com/@types/babel__core/-/babel__core-7.1.4.tgz#5c5569cc40e5f2737dfc00692f5444e871e4a234"
